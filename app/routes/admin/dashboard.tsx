@@ -1,19 +1,9 @@
-import React from "react";
 import Header from "../../../components/Header";
 import { TripCard } from "components";
 import { StatsCard } from "components";
+import { dashboardStats, user, allTrips } from "~/constants";
 
 const dashboard = () => {
-  const user = { name: "Mateusz" };
-
-  const dashboardStats = {
-    totalUsers: 12450,
-    usersJoined: { currentMonth: 218, lastMonth: 14 },
-    totalTrips: 3210,
-    tripsCreated: { currentMonth: 150, lastMonth: 250 },
-    userRole: { total: 62, currentMonth: 25, lastMonth: 12 },
-  };
-
   const { totalUsers, usersJoined, totalTrips, tripsCreated, userRole } =
     dashboardStats;
 
@@ -47,7 +37,14 @@ const dashboard = () => {
         </div>
       </section>
 
-      <TripCard />
+      <section className="container">
+        <h1 className="text-xl font-semibold text-dark-100">Created Trips</h1>
+        <div className="trip-grid">
+          {allTrips.slice(0, 4).map((trip) => {
+            return <TripCard key={trip.id} trip={trip} />
+          })}
+        </div>
+      </section>
     </main>
   );
 };
