@@ -25,12 +25,15 @@ const TripCard = ({ trip }: TripCardProps) => {
   };
   
   return (
-    <Link to={getTripUrl()} className="trip-card block hover:shadow-lg transition-shadow duration-200">
+    <Link to={getTripUrl()} className="trip-card block hover:shadow-lg transition-shadow duration-200 relative">
       <img
         src={imageUrls[0]}
         alt={name}
         className="w-full h-[160px] rounded-t-xl object-cover aspect-video"
       />
+      <span className="absolute top-3 right-3 bg-gray-100/90 backdrop-blur-sm text-dark-100 text-sm font-semibold py-1.5 px-3 rounded-full">
+        {estimatedPrice}
+      </span>
       <article className="flex flex-col gap-3 mt-4 pl-[18px] pr-3.5 pb-4">
         <h2 className="text-sm md:text-lg font-semibold text-dark-100 line-clamp-2">
           {name}
@@ -45,20 +48,15 @@ const TripCard = ({ trip }: TripCardProps) => {
             {itinerary[0]?.location}
           </figcaption>
         </figure>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1">
-            {tags.slice(0, 2).map((tag, index) => (
-              <span
-                key={index}
-                className="bg-light-100 text-xs px-2 py-1 rounded-full text-gray-700"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <span className="text-sm font-semibold text-dark-100">
-            {estimatedPrice}
-          </span>
+        <div className="flex items-center gap-1">
+          {tags.slice(0, 2).map((tag, index) => (
+            <span
+              key={index}
+              className="bg-light-100 text-xs px-2 py-1 rounded-full text-gray-700"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </article>
     </Link>
