@@ -30,19 +30,19 @@ const dashboard = () => {
             headerTitle="Total Users"
             total={totalUsers}
             currentMonthCount={usersJoined.currentMonth}
-            lastMonth={usersJoined.lastMonth}
+            lastMonthCount={usersJoined.lastMonth}
           />
           <StatsCard
             headerTitle="Total Trips"
             total={totalTrips}
             currentMonthCount={tripsCreated.currentMonth}
-            lastMonth={tripsCreated.lastMonth}
+            lastMonthCount={tripsCreated.lastMonth}
           />
           <StatsCard
-            headerTitle="Total users"
+            headerTitle=" Active users today"
             total={userRole.total}
             currentMonthCount={userRole.currentMonth}
-            lastMonth={userRole.lastMonth}
+            lastMonthCount={userRole.lastMonth}
           />
         </div>
       </section>
